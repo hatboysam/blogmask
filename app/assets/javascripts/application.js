@@ -21,22 +21,67 @@
 $(function(){ $(document).foundation(); });
 
 /**
- * New Post Page
+ * New Post Page JavaScript
  */
 load('posts#new', function(controller, actions) {
+
+  // Controls the preview toggle
+  var bodyEditable = true;
+
+  // Content...
+  var titleContent = "";
+  var bodyContent = "";
+
   $(document).ready(function() {
+    rangy.init();
+
     // Simple title editor
     $('#hallo-title').hallo();
 
     // Load the Hallo-JS Editor
     $('#hallo-editor').hallo({
       plugins: {
-        'halloformat': {},
+        'halloformat': {
+          formattings: {
+            bold: true,
+            italic: true,
+            strikethrough: true,
+            underline: true
+          }
+        },
         'halloheadings': {},
         'hallojustify': {},
-        'hallolists': {}
+        'hallolists': {},
+        'hallolink': {}
       },
       toolbar: 'halloToolbarFixed'
+    });
+
+    // Track edits
+    $('#hallo-editor').on('hallomodified', function(e, data) {
+      bodyContent = data.content;
+    });
+
+    $('#hallo-title').on('hallomodified', function(e, data) {
+      titleContent = data.content;
+    });    
+
+    // Add Preview Mode (toggle)
+    $('#preview-button').on('click', function(e) {
+      e.preventDefault();
+
+      // Toggle edit mode and dotted lines
+      $('.editor').hallo({ editable: !bodyEditable });
+      $('.editor').toggleClass('dotted');
+
+      // Flip the bit
+      bodyEditable = !bodyEditable;
+    });
+
+    $("#save-button").on('click', function(e) {
+      e.preventDefault();
+      console.log(titleContent);
+      console.log(bodyContent);
     });
   });
 });
