@@ -11,6 +11,4 @@
  *= require_self
  *= require foundation_and_overrides
  *= require custom
-
- *= require_tree .
  */

@@ -2,7 +2,7 @@
 * Home page
 * Demo Post
 * Post creation
-  * Nice post editor (Markdown) - http://epiceditor.com/
+  * Nice post editor (Markdown) - http://bergie.iki.fi/blog/hallo-editor/
   * Markdown render - https://github.com/evilstreak/markdown-js
   * Random hashed link
   * Unique password for edits/deletion
