@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <!-- Top Navigation Bar -->
+  	<nav class="top-bar" data-topbar>
+  		<ul class="title-area">
+  			<li class="name">
+  				<h1><a href="#">BlogMask</a></h1>
+  			</li>
+  		</ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="divider"></li>
+          <li><a href="#">About</a></li>
+
+          <li class="divider"></li>
+          <li><a href="#">Contact</a></li>
+
+          <li class="divider"></li>
+          <li class="has-form">
+            <a href="#" class="small button">Write</a>
+          </li>
+        </ul>
+      </section>
+  	</nav>
+
+    <!-- Main Body -->
+    <section role="main">
+      <div class="row">
+        <!-- Left Side Bar -->
+        <div class="large-3 small-3 columns">
+          <div class="sidebar">
+            <nav>
+              <h5>Go To</h5>
+              <ul class="side-nav">
+                <li><a href="#">Some Link</a></li>
+                <li><a href="#">Another Link</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Center Content -->
+        <div class="large-6 small-6 columns">
+          <%= yield %>
+        </div>
+
+        <!-- Right Side Bar -->
+        <div class="large-3 small-3 columns">
+          <!-- TODO: Something here -->
+        </div>
+      </div>
+    </section>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
