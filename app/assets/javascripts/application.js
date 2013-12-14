@@ -12,8 +12,31 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require foundation
 //= require turbolinks
+//= require loadjs
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+/**
+ * New Post Page
+ */
+load('posts#new', function(controller, actions) {
+  $(document).ready(function() {
+    // Simple title editor
+    $('#hallo-title').hallo();
+
+    // Load the Hallo-JS Editor
+    $('#hallo-editor').hallo({
+      plugins: {
+        'halloformat': {},
+        'halloheadings': {},
+        'hallojustify': {},
+        'hallolists': {}
+      },
+      toolbar: 'halloToolbarFixed'
+    });
+  });
+});

@@ -30,6 +30,15 @@ gem 'jbuilder', '~> 1.2'
 # Foundation Zurb
 gem 'foundation-rails'
 
+# jQuery UI
+gem 'jquery-ui-rails'
+
+# Font Awesome
+gem 'font-awesome-rails', '3.2.1.3'
+
+# Page-Specific JavaScript
+gem 'loadjs'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

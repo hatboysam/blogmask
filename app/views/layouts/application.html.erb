@@ -11,7 +11,11 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <!-- data attributes are for LoadJS gem -->
+  <body 
+    data-controller="<%= controller.controller_path %>" 
+    data-action="<%= controller.action_name %>">
+
     <!-- Top Navigation Bar -->
   	<nav class="top-bar" data-topbar>
   		<ul class="title-area">
@@ -46,6 +50,8 @@
       </div>
     </section>
 
+    <!-- Rangy, used for Hallo -->
+    <script src="http://rangy.googlecode.com/svn/trunk/currentrelease/rangy-core.js"></script>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
