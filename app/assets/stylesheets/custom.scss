@@ -1,0 +1,28 @@
+@import "foundation_and_overrides";
+
+.dotted-under {
+  border-bottom: 1px dashed $body-font-color;
+}
+
+.dotted {
+  border: 1px dashed $primary-color;
+}
+
+.list-circle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: $primary-color;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+}
+
+.list-content {
+  padding-left: 20px;
+}
+
+.t-inline {
+  display: table-cell;
+}

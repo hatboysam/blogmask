@@ -2,9 +2,11 @@
 * Home page
 * Demo Post
 * Post creation
-  * Nice post editor (Markdown)
-  * Random hased link
+  * Nice post editor (Markdown) - http://epiceditor.com/
+  * Markdown render - https://github.com/evilstreak/markdown-js
+  * Random hashed link
   * Unique password for edits/deletion
+    * User-set, optional
 * Post editing
   * Require password
 * Commenting
