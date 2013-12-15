@@ -8,6 +8,20 @@
   border: 1px dashed $primary-color;
 }
 
+#flash-row div {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+.post-title {
+  padding: 10px;
+}
+
+.post-body {
+  padding: 10px;
+}
+
 .editor {
   padding: 10px;
 }

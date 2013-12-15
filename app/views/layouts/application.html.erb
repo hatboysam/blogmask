@@ -40,6 +40,13 @@
       </section>
   	</nav>
 
+    <!-- Flash Messages -->
+    <div class="row" id="flash-row">
+        <% flash.each do |k, v| %>
+          <div class="alert-box <%= k %>"><%= v %></div>
+        <% end %>
+    </div>
+
     <!-- Main Body -->
     <section role="main">
       <div class="row">

@@ -60,10 +60,12 @@ load('posts#new', function(controller, actions) {
     // Track edits
     $('#hallo-editor').on('hallomodified', function(e, data) {
       bodyContent = data.content;
+      $('#h-body-field').val(bodyContent);
     });
 
     $('#hallo-title').on('hallomodified', function(e, data) {
       titleContent = data.content;
+      $('#h-title-field').val(titleContent);
     });    
 
     // Add Preview Mode (toggle)
@@ -76,12 +78,6 @@ load('posts#new', function(controller, actions) {
 
       // Flip the bit
       bodyEditable = !bodyEditable;
-    });
-
-    $("#save-button").on('click', function(e) {
-      e.preventDefault();
-      console.log(titleContent);
-      console.log(bodyContent);
     });
   });
 });

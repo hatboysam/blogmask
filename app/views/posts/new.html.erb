@@ -14,4 +14,10 @@
 </p>
 
 <a href="#"  id="preview-button" class="button">Toggle Preview</a>
-<a href="#" id="save-button" class="button success">Save Post</a>
+
+<%= form_for(@post, :html => { :style => 'display:inline;' }) do |f| %>
+  <%= f.hidden_field :title, :id => 'h-title-field' %>
+  <%= f.hidden_field :body , :id => 'h-body-field' %>
+
+  <%= f.submit :value => 'Save Post', :class => 'button success' %>
+<% end %>
