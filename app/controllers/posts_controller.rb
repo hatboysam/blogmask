@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post created!  Copy the link to share.'
-      redirect_to @post
+      redirect_to post_slug_path(@post.hashed_key, @post.title_slug)
     else
       # TODO: Restore from LocalStorage
       flash[:alert] = 'Sorry! There was a problem creating your post.'
@@ -18,7 +18,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    hashed_key = params[:id]
+    unhashed_key = Post.unhash_key(hashed_key)
+    @post = Post.find(unhashed_key)
   end
 
   private

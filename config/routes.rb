@@ -7,6 +7,9 @@ Blogmask::Application.routes.draw do
 
   resources :posts
 
+  # Cool matching
+  get 'posts/:id/:slug' => 'posts#show', as: 'post_slug'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

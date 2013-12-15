@@ -10,7 +10,6 @@
     * Add support for images (hot-linked only?)
   * Store and render posts
   * Restore from LocalStorage if param in URL says to
-  * Random hashed link
   * Unique password for edits/deletion
     * User-set, optional
   * Random avatar for profile picture? Would make the page look nicer.
