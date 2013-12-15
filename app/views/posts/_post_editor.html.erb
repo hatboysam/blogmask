@@ -1,0 +1,15 @@
+<h1 id="hallo-title" class="dotted editor">
+</h1>
+
+<div id="#hallo-editor-parent">
+  <p id="hallo-editor" class="dotted editor">
+  </p>
+</div>
+
+<a href="#"  id="preview-button" class="button">Toggle Preview</a>
+<%= form_for(@post, :html => { :style => 'display:inline;' }) do |f| %>
+  <%= f.hidden_field :title, :id => 'h-title-field', :value => title %>
+  <%= f.hidden_field :body , :id => 'h-body-field', :value => raw(body) %>
+
+  <%= f.submit :value => 'Save Post', :class => 'button success' %>
+<% end %>

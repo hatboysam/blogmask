@@ -8,8 +8,7 @@
     * Make the toolbar look nicer
     * Maybe allow markdown editing
     * Add support for images (hot-linked only?)
-  * Store and render posts
-  * Restore from LocalStorage if param in URL says to
+  * Restore from LocalStorage if param in URL says to (error recovery)
   * Unique password for edits/deletion
     * User-set, optional
   * Random avatar for profile picture? Would make the page look nicer.

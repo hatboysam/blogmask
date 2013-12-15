@@ -2,6 +2,10 @@ require 'base64'
 
 class Post < ActiveRecord::Base
 
+  def self.find_by_hashed_key(hashed)
+    find(unhash_key(hashed))
+  end
+
   def self.unhash_key(hashed)
     Base64.strict_decode64(hashed).to_i
   end

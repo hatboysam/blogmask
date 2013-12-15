@@ -23,7 +23,10 @@ $(function(){ $(document).foundation(); });
 /**
  * New Post Page JavaScript
  */
-load('posts#new', function(controller, actions) {
+load({
+  controllers: {
+    posts: ['new', 'edit']
+  }}, function(controller, actions) {
 
   // Controls the preview toggle
   var bodyEditable = true;
@@ -56,6 +59,10 @@ load('posts#new', function(controller, actions) {
       },
       toolbar: 'halloToolbarFixed'
     });
+
+    // Load current content
+    $('#hallo-title').append($('#h-title-field').val());
+    $('#hallo-editor').append($('#h-body-field').val());
 
     // Track edits
     $('#hallo-editor').on('hallomodified', function(e, data) {
