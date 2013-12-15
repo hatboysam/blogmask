@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post created!  Copy the link to share.'
-      real_post_path(@post)
+      redirect_to real_post_path(@post)
     else
       # TODO: Restore from LocalStorage
       flash[:alert] = 'Sorry! There was a problem creating your post.'

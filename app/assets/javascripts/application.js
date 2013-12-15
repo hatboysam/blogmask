@@ -60,10 +60,6 @@ load({
       toolbar: 'halloToolbarFixed'
     });
 
-    // Load current content
-    $('#hallo-title').append($('#h-title-field').val());
-    $('#hallo-editor').append($('#h-body-field').val());
-
     // Track edits
     $('#hallo-editor').on('hallomodified', function(e, data) {
       bodyContent = data.content;
