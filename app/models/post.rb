@@ -1,6 +1,7 @@
 require 'base64'
 
 class Post < ActiveRecord::Base
+  has_secure_password
 
   def self.find_by_hashed_key(hashed)
     find(unhash_key(hashed))

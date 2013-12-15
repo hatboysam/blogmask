@@ -1,4 +1,7 @@
 <h1>Edit Post</h1>
 <hr>
 
-<%= render :partial => 'post_editor', :locals => { :title => @post.title, :body => @post.body } %>
+<%= render :partial => 'post_editor', :locals => 
+  { :title => @post.title, 
+    :body => @post.body,
+    :password => false } %>

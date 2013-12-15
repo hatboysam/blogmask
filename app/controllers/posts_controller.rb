@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.password_confirmation = params[:post][:password]
 
     if @post.save
       flash[:success] = 'Post created!  Copy the link to share.'
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :password, :password_confirmation)
   end
 
   def real_post_path(post)
