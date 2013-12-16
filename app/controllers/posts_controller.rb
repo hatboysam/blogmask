@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post.password_confirmation = params[:post][:password]
 
     if @post.save
-      flash[:success] = 'Post created!  Copy the link to share.'
+      flash[:success] = 'Post created!  Make sure to copy the link somewhere, you will need it to get back to your post.'
       redirect_to real_post_path(@post)
     else
       # TODO: Restore from LocalStorage
