@@ -35,6 +35,11 @@ class PostsController < ApplicationController
   def update
     # TODO: Make the edit form send the hashed key
     @post = Post.find(params[:id])
+
+    if !signed_in?(@post)
+      redirect_to real_post_path(@post)
+    end
+
     @post.title = params[:post][:title]
     @post.body = params[:post][:body]
 
