@@ -7,6 +7,11 @@ Blogmask::Application.routes.draw do
 
   resources :posts
 
+  # Sign in to a post
+  get 'posts/:id/signin' => 'posts#signin', as: 'post_signin'
+
+  post 'posts/:id/authenticate' => 'posts#authenticate', as: 'post_authenticate'
+
   # Cool matching
   get 'posts/:id/:slug' => 'posts#show', as: 'post_slug'
 

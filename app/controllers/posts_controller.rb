@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include PostsHelper
 
   def new
     @post = Post.new
@@ -24,6 +25,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by_hashed_key(params[:id])
+
+    if (!signed_in?(@post))
+      flash[:notice] = 'Please sign in to edit.'
+      redirect_to post_signin_path(@post.hashed_key)
+    end
   end
 
   def update
@@ -38,7 +44,24 @@ class PostsController < ApplicationController
       flash[:alert] = 'Sorry! There was a problem editing your post.'
     end
 
+    # Sign out on each edit
+    sign_out
     redirect_to real_post_path(@post)
+  end
+
+  def signin
+    @post = Post.find_by_hashed_key(params[:id])
+  end
+
+  def authenticate
+    @post = Post.find_by_hashed_key(params[:id])
+    if sign_in?(@post, params[:password])
+      flash[:success] = 'Signed in!'
+      redirect_to edit_post_path(@post.hashed_key)
+    else
+      flash[:alert] = 'Sorry, that password was not correct.'
+      redirect_to post_signin_path(@post.hashed_key)
+    end
   end
 
   private

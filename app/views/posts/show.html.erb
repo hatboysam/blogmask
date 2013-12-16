@@ -5,7 +5,14 @@
 
   <hr>
 
-  <span id="post-body-content">
+  <div id="post-body-content">
     <%= raw(@post.body) %>
-  </span>
+  </div>
+
+  <hr>
+  <div>
+    Own this post?  <a href="<%= edit_post_path(@post.hashed_key) %>">Click here to edit.</a>
+  </div>
 </div>
+
+

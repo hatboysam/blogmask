@@ -1,0 +1,6 @@
+<h1>Enter Password</h1>
+<h4>Post: <%= @post.title %></h4>
+<%= form_tag(post_authenticate_path(@post.hashed_key), method: 'post') do %>
+  <%= password_field_tag :password, "", style: 'width: 200px;', placeholder: 'password' %>
+  <%= submit_tag 'Submit', :class => 'button small success', style: 'display: inline' %>
+<% end %>
