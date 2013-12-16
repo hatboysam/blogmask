@@ -39,7 +39,7 @@ load({
     rangy.init();
 
     // Simple title editor
-    $('#hallo-title').hallo();
+    // $('#hallo-title').hallo();
 
     // Load the Hallo-JS Editor
     $('#hallo-editor').hallo({
@@ -66,10 +66,15 @@ load({
       $('#h-body-field').val(bodyContent);
     });
 
-    $('#hallo-title').on('hallomodified', function(e, data) {
-      titleContent = data.content;
+    // $('#hallo-title').on('hallomodified', function(e, data) {
+    //   titleContent = data.content;
+    //   $('#h-title-field').val(titleContent);
+    // });  
+
+    $('#hallo-title').on('keypress keyup blur change input', function(e) {
+      titleContent = $(this).text();
       $('#h-title-field').val(titleContent);
-    });    
+    }); 
 
     // Add Preview Mode (toggle)
     $('#preview-button').on('click', function(e) {
