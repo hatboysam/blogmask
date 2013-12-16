@@ -1,7 +1,8 @@
 <div class="post-body">
-  <h1>
+  <h1 style="display: inline;">
     <%= @post.title %>
   </h1>
+  <a href="<%= edit_post_path(@post.hashed_key) %>">edit</a>
 
   <hr>
 
@@ -9,10 +10,6 @@
     <%= raw(@post.body) %>
   </div>
 
-  <hr>
-  <div>
-    Own this post?  <a href="<%= edit_post_path(@post.hashed_key) %>">Click here to edit.</a>
-  </div>
 </div>
 
 

@@ -5,11 +5,17 @@ Blogmask::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'application#index'
 
+  # About and contact
+  get '/about' => 'application#about'
+  get '/contact' => 'application#contact'
+
+  # Post resource paths
   resources :posts
 
   # Sign in to a post
   get 'posts/:id/signin' => 'posts#signin', as: 'post_signin'
 
+  # Post sign in
   post 'posts/:id/authenticate' => 'posts#authenticate', as: 'post_authenticate'
 
   # Cool matching

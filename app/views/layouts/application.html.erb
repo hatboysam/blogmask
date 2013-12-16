@@ -27,10 +27,10 @@
       <section class="top-bar-section">
         <ul class="right">
           <li class="divider"></li>
-          <li><a href="#">About</a></li>
+          <li><a href="/about">About</a></li>
 
           <li class="divider"></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/contact">Contact</a></li>
 
           <li class="divider"></li>
           <li class="has-form">
@@ -51,11 +51,19 @@
     <section role="main">
       <div class="row">
         <!-- Center Content -->
-        <div class="large-12 columns">
+        <div class="large-12 columns" id="main-content">
           <%= yield %>
+        </div>
+        <hr>
+        <div class="large-12 columns" id="footer-content">
+            <div class="panel">
+              <b>BTC Donations: </b>
+              <pre style="display: inline; margin-left: 10px;">1ABiogo1FBiPTjRuetnUQrf1HaitqiLj3S</pre>
+            </div>
         </div>
       </div>
     </section>
+
 
     <%= javascript_include_tag "application" %>
   </body>

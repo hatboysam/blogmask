@@ -1,7 +1,7 @@
 ## Features to Complete
-### Home page
-  * About page
-  * Contact page
+
+### Home Page
+  * Logo
   
 ### Demo Post
   * Linked at /demo
@@ -12,14 +12,10 @@
   * Restore from LocalStorage if param in URL says to (error recovery)
   * Random avatar for profile picture? Would make the page look nicer.
   
-### Post editing
-  * Require password, some sort of session
-  
 ### Sharing
   * Push discussion to Hacker News, Facebook, etc.
   
 ### BitCoin donations
-  * Put my link on the homepage
   * QR Code
   
 ### Voting
@@ -27,6 +23,7 @@
   * List of top posts for the day/month/year
 
 ## Stretch features
+
 ### Post creation
   * Allow markdown editing
   * Image support
