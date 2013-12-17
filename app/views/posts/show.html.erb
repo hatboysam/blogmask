@@ -2,7 +2,9 @@
   <h1 style="display: inline;">
     <%= @post.title %>
   </h1>
-  <a href="<%= edit_post_path(@post.hashed_key) %>">edit</a>
+  <a href="<%= edit_post_path(@post.hashed_key) %>">(edit)</a>
+  <br>
+  <a href="<%= post_category_path(@post.category) %>" class="cat-label button small radius success">Category: <%= @post.category %></a>
 
   <hr>
 

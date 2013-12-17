@@ -54,6 +54,12 @@ class PostsController < ApplicationController
     redirect_to real_post_path(@post)
   end
 
+  def category
+    @category = params[:category]
+    # TODO: pagination...
+    @posts = Post.where(category: @category).limit(20)
+  end 
+
   def signin
     @post = Post.find_by_hashed_key(params[:id])
   end

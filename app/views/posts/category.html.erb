@@ -1,0 +1,9 @@
+<h1><%= @category %></h1>
+<hr>
+<ul>
+  <% @posts.each do |p| %>
+    <li>
+      <%= link_to p.title, post_slug_path(p.hashed_key, p.title_slug) %>
+    </li>
+  <% end %>
+</ul>

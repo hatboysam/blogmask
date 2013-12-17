@@ -21,7 +21,26 @@
 $(function(){ $(document).foundation(); });
 
 /**
- * New Post Page JavaScript
+ * New-page specific JavaScript
+ */
+load('posts#new', function(controller, actions) {
+  $(document).ready(function() {
+    // Disable save button at first
+    $('#submit-button').attr('disabled', 'true');
+
+    // Only enable it with a non-blank password
+    $('#password-field').on('blur modified keyup', function(e) {
+      if ($(this).val().length == 0) {
+        $('#submit-button').attr('disabled', 'true');
+      } else {
+        $('#submit-button').removeAttr('disabled');
+      }
+    });
+  });
+});
+
+/**
+ * New and Edit Post Page JavaScript
  */
 load({
   controllers: {
@@ -57,7 +76,10 @@ load({
         'hallolists': {},
         'hallolink': {}
       },
-      toolbar: 'halloToolbarFixed'
+      toolbar: 'halloToolbarFixed',
+      toolbarOptions: {
+        parentElement: '#hallo-toolbar'
+      }
     });
 
     // Track edits
@@ -83,6 +105,12 @@ load({
       // Toggle edit mode and dotted lines
       $('.editor').hallo({ editable: !bodyEditable });
       $('.editor').toggleClass('dotted');
+
+      // Hide form elements
+      $('select').toggle();
+      $('label').toggle();
+      $('input[type="password"]').toggle();
+      $('.gen-form-elm').toggle();
 
       // Flip the bit
       bodyEditable = !bodyEditable;
