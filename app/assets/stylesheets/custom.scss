@@ -43,6 +43,18 @@
   padding: 10px;
 }
 
+div.post-panel {
+  float:left !important;
+  height: 60px;
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.no-over {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 #main-content {
   min-height: 600px;
 }

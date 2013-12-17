@@ -4,7 +4,7 @@
 <% Category.all.each_slice(4) do |slice| %>
   <div class="row">
     <% slice.each do |c| %>
-      <div class="large-3 small-3 columns cat-col">
+      <div class="large-3 columns cat-col">
         <%= link_to c, post_category_path(c) %>
       </div>
     <% end %>
