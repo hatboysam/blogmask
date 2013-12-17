@@ -12,4 +12,7 @@ class ApplicationController < ActionController::Base
   def contact
   end
 
+  def browse
+  end
+
 end

@@ -5,9 +5,10 @@ Blogmask::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'application#index'
 
-  # About and contact
+  # Top level
   get '/about' => 'application#about'
   get '/contact' => 'application#contact'
+  get '/browse' => 'application#browse'
 
   # Post resource paths
   resources :posts

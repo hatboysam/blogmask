@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   include PostsHelper
+  include Category
 
   def new
     @post = Post.new
@@ -42,6 +43,7 @@ class PostsController < ApplicationController
 
     @post.title = params[:post][:title]
     @post.body = params[:post][:body]
+    @post.category = params[:post][:category]
 
     if @post.save
       flash[:success] = 'Post updated!'
@@ -78,7 +80,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :password, :password_confirmation)
+    params.require(:post).permit(:title, :body, :password, :category)
   end
 
   def real_post_path(post)

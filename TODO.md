@@ -15,8 +15,7 @@
   * Make it more clear that you need a password and need to remember it.
 
 ### Categories
-  * Allow (force) people to categorize their post.
-  * Browse by category.
+  * Pagination on the browsing page
   * Put "If you liked this..." posts on the bottom of each
 
 ### Replies
@@ -26,9 +25,6 @@
   
 ### Sharing
   * Push discussion to Hacker News, Facebook, etc.
-  
-### BitCoin donations
-  * QR Code
   
 ### Voting
   * Like subtle, just up

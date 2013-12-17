@@ -1,9 +1,14 @@
 <h1><%= @category %></h1>
 <hr>
-<ul>
-  <% @posts.each do |p| %>
-    <li>
-      <%= link_to p.title, post_slug_path(p.hashed_key, p.title_slug) %>
-    </li>
-  <% end %>
-</ul>
+<% if (@posts.count == 0) %>
+  Sorry, there are no posts for this category yet.  
+  Why not <%= link_to "write one", new_post_path %>?
+<% else %>
+  <ul>
+    <% @posts.each do |p| %>
+      <li>
+        <%= link_to p.title, post_slug_path(p.hashed_key, p.title_slug) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

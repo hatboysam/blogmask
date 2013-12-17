@@ -15,15 +15,11 @@
   <%= f.hidden_field :body , :id => 'h-body-field', :value => body %>
 
   <%= f.label :category, 'Category: ' %>
-  <%= f.select :category, 
-    [ 'Other', 'Arts', 'Business', 'Confession', 'Entertainment', 'Funny', 'Fashion', 
-      'Gaming', 'Health', 'How To', 'Journal', 'Life', 'Men', 'Movies/TV', 
-      'Music', 'Opinion', 'Politics', 'Science', 'Self', 'Society', 'Rant', 
-      'Religion', 'Sports', 'Technoloy', 'Travel', 'Women', 'World' ]
+  <%= f.select :category, Category.all
   %>
+  <br />
 
   <% if password == true %>
-    <br />
     <%= f.label :password, 'Password: ' %>
     <%= f.password_field :password, :id => 'password-field', :placeholder => 'post password (required)' %>
     <span class="gen-form-elm" style="color: red; margin-left: 5px;">*</span>
