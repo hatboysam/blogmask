@@ -21,6 +21,37 @@
 $(function(){ $(document).foundation(); });
 
 /**
+ * Show page JavaScript
+ */
+load('posts#show', function(controller, actions) {
+  $(document).ready(function() {
+    // Load Kudo
+    $('figure.kudo').kudoable();
+    postHash = $('figure.kudo').attr('data-id');
+    cookieKey = postHash + '-voted';
+
+    // Check for cookie
+    cookieVal = $.cookie(cookieKey);
+    voted = (cookieVal === 'true');
+
+    // Set it to the voted state
+    if (voted) {
+      $('figure.kudo').addClass('complete');
+    }
+
+    // On vote
+    $('figure.kudo').on('kudo:added', function(event) {
+      if (!voted) {
+        $('#vote-form').trigger('submit.rails');
+      }
+
+      // Set true
+      $.cookie(cookieKey, 'true');
+    });
+  });
+});
+
+/**
  * New-page specific JavaScript
  */
 load('posts#new', function(controller, actions) {

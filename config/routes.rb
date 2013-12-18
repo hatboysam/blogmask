@@ -13,6 +13,9 @@ Blogmask::Application.routes.draw do
   # Post resource paths
   resources :posts
 
+  # Post vote path
+  post '/posts/:id/vote' => 'posts#vote', as: 'post_vote'
+
   get '/posts/category/:category' => 'posts#category', as: 'post_category'
 
   # Sign in to a post

@@ -1,4 +1,18 @@
 <div class="post-body">
+
+  <!-- Kudo Vote Widget -->
+  <figure class="kudo kudoable" id="kudo-vote" data-id="<%= @post.hashed_key %>">
+    <a class="kudobject" style="margin-bottom: 5px;">
+        <div class="opening">
+            <div class="circle">&nbsp;</div>
+        </div>
+    </a>
+    <a href="#kudo" class="count">
+        <span class="num" style="display: inline;"><%= @post.numvotes %></span>
+        <span class="txt" style="display: inline;">Points</span>
+    </a>
+  </figure>
+
   <h1 style="display: inline;">
     <%= @post.title %>
   </h1>
@@ -12,6 +26,13 @@
     <%= raw(@post.body) %>
   </div>
 
+  <!-- Hidden Vote Form -->
+  <%= form_tag post_vote_path, 
+    method: :post, 
+    remote: true, 
+    authenticity_token: true, 
+    format: :json,
+    id: 'vote-form' do %>
+  <% end %>
+
 </div>
-
-

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217035925) do
+ActiveRecord::Schema.define(version: 20131217235021) do
 
   create_table "posts", force: true do |t|
     t.text     "title"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20131217035925) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "category",        default: "Other"
+    t.integer  "numvotes",        default: 0
+    t.datetime "lastvoted"
   end
 
 end

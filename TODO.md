@@ -27,7 +27,6 @@
   * Push discussion to Hacker News, Facebook, etc.
   
 ### Voting
-  * Like subtle, just up
   * List of top posts for the day/month/year
 
 ## Stretch features

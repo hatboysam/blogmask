@@ -56,6 +56,17 @@ class PostsController < ApplicationController
     redirect_to real_post_path(@post)
   end
 
+  def vote
+    @post = Post.find_by_hashed_key(params[:id])
+    @post.increment(:numvotes, 1)
+    @post.lastvoted = Time.now
+    @post.save
+    
+    respond_to do |format|
+      format.json { render text: 'Voted.' }
+    end
+  end
+
   def category
     @category = params[:category]
     # TODO: pagination...
