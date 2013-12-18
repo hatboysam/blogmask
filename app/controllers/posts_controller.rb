@@ -70,7 +70,7 @@ class PostsController < ApplicationController
   def category
     @category = params[:category]
     # TODO: pagination...
-    @posts = Post.where(category: @category).limit(18)
+    @posts = Post.where(category: @category).limit(20).order('numvotes DESC')
   end 
 
   def signin

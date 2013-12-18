@@ -19,4 +19,10 @@ class Post < ActiveRecord::Base
     title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
+  def body_preview
+    # TODO make it work with links
+    stripped = body.gsub(/<[^>]+>/," ").strip.squeeze(' ')
+    return stripped
+  end
+
 end
