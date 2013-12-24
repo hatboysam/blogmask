@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @parent = Post.find_by_hashed_key(params[:reply]) unless params[:reply].nil?
   end
 
   def create
@@ -64,6 +65,7 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       format.json { render text: 'Voted.' }
+      format.html { redirect_to real_post_path(@post) }
     end
   end
 
@@ -91,7 +93,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :password, :category)
+    params.require(:post).permit(:title, :body, :password, :category, :parent_id)
   end
 
   def real_post_path(post)

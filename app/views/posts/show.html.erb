@@ -13,18 +13,46 @@
     </a>
   </figure>
 
+  <!-- Post Category Label -->
+  <a href="<%= post_category_path(@post.category) %>" class="cat-label button small radius success">Category: <%= @post.category %></a>
+
+  <!-- Parent Label -->
+  <% unless @post.parent.nil? %>
+    <%= link_to 'Parent Post', 
+                post_slug_path(
+                  @post.parent.hashed_key, 
+                  @post.parent.title_slug),
+                class: 'cat-label button small radius' %>
+  <% end %>
+  <br />
+
+  <!-- Post title and edit button -->
   <h1 style="display: inline;">
     <%= @post.title %>
   </h1>
   <a href="<%= edit_post_path(@post.hashed_key) %>">(edit)</a>
   <br>
-  <a href="<%= post_category_path(@post.category) %>" class="cat-label button small radius success">Category: <%= @post.category %></a>
 
   <hr>
 
+  <!-- Post Body -->
   <div id="post-body-content">
     <%= raw(@post.body) %>
   </div>
+
+  <!-- Reply Button -->
+  <%= link_to 'Write Reply', new_post_path(reply: @post.hashed_key), class: 'button' %>
+
+  <!-- Show replies -->
+  <% unless @post.replies.empty? %>
+    <br />
+    <h5>Replies to this post: </h5>
+      <% @post.replies.each do |r| %>
+        <div class="panel">
+          <%= link_to r.title, post_slug_path(r.hashed_key, r.title_slug) %>
+        </div>
+      <% end %>
+  <% end %>
 
   <!-- Hidden Vote Form -->
   <%= form_tag post_vote_path, 

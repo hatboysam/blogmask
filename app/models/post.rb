@@ -20,9 +20,16 @@ class Post < ActiveRecord::Base
   end
 
   def body_preview
-    # TODO make it work with links
-    stripped = body.gsub(/<[^>]+>/," ").strip.squeeze(' ')
+    stripped = body.gsub(/<[^>]+>/,' ').gsub('&nbsp', '').strip.squeeze(' ')
     return stripped
+  end
+
+  def parent
+    Post.find(parent_id) unless parent_id.nil?
+  end
+
+  def replies
+    Post.where(parent_id: id)
   end
 
 end

@@ -25,9 +25,12 @@ $(function(){ $(document).foundation(); });
  */
 load('posts#show', function(controller, actions) {
   $(document).ready(function() {
+
+    elm = $('figure.kudo');
+
     // Load Kudo
-    $('figure.kudo').kudoable();
-    postHash = $('figure.kudo').attr('data-id');
+    elm.kudoable();
+    postHash = elm.attr('data-id');
     cookieKey = postHash + '-voted';
 
     // Check for cookie
@@ -36,18 +39,24 @@ load('posts#show', function(controller, actions) {
 
     // Set it to the voted state
     if (voted) {
-      $('figure.kudo').addClass('complete');
+      elm.addClass('complete');
     }
 
+    elm.on('click', function(event) {
+      e.preventDefault();
+    });
+
     // On vote
-    $('figure.kudo').on('kudo:added', function(event) {
+    elm.on('kudo:added', function(event) {
       if (!voted) {
         $('#vote-form').trigger('submit.rails');
+        voted = true;
       }
 
       // Set true
       $.cookie(cookieKey, 'true');
     });
+
   });
 });
 

@@ -13,6 +13,9 @@
 <%= form_for(@post, :html => { :style => 'display:inline;' }) do |f| %>
   <%= f.hidden_field :title, :id => 'h-title-field', :value => title %>
   <%= f.hidden_field :body , :id => 'h-body-field', :value => body %>
+  <% unless @parent.nil? %>
+    <%= f.hidden_field :parent_id, :value=> parent.id %>
+  <% end %>
 
   <%= f.label :category, 'Category: ' %>
   <%= f.select :category, Category.all

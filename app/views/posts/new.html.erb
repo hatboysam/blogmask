@@ -4,8 +4,14 @@
 </h5>
 
 <hr>
-
+<% unless @parent.nil? %>
+  <h6 class="gen-form-elm">Replying to: 
+  <%= link_to @parent.title, 
+              post_slug_path(@parent.hashed_key, 
+              @parent.title_slug) %></h6>
+<% end %>
 <%= render :partial => 'post_editor', :locals => 
   { :title => "Post Title", 
     :body => "Say what's on your mind",
-    :password => true } %>
+    :password => true,
+    :parent => @parent } %>

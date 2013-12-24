@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217235021) do
+ActiveRecord::Schema.define(version: 20131224010405) do
 
   create_table "posts", force: true do |t|
     t.text     "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131217235021) do
     t.string   "category",        default: "Other"
     t.integer  "numvotes",        default: 0
     t.datetime "lastvoted"
+    t.integer  "parent_id"
   end
 
 end
