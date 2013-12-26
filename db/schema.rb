@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224010405) do
+ActiveRecord::Schema.define(version: 20131226203220) do
 
   create_table "posts", force: true do |t|
     t.text     "title"
@@ -24,5 +24,8 @@ ActiveRecord::Schema.define(version: 20131224010405) do
     t.datetime "lastvoted"
     t.integer  "parent_id"
   end
+
+  add_index "posts", ["lastvoted"], name: "index_posts_on_lastvoted"
+  add_index "posts", ["numvotes"], name: "index_posts_on_numvotes"
 
 end

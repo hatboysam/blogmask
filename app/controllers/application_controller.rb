@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def browse
+    @alltime = Post.top_all_time(10)
+    @thisweek = Post.top_last_week(10)
   end
 
 end

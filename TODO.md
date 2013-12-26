@@ -16,7 +16,6 @@
   * Nofollow on links (pull request on HalloJS or add on view with jQuery)
   * Restore from LocalStorage if param in URL says to (error recovery)
   * Random avatar for profile picture? Would make the page look nicer.
-  * Make it more clear that you need a password and need to remember it.
 
 ### Voting
   * Why does it sometimes redirect after a vote ...

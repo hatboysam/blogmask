@@ -44,6 +44,10 @@
   padding: 10px;
 }
 
+.p5 {
+  padding: 5px;
+}
+
 .post-title {
   padding: 10px;
 }
@@ -69,6 +73,10 @@ div.post-panel {
 
 div.post-preview {
   padding-right: 5px;
+  overflow: hidden;
+}
+
+.hide-over {
   overflow: hidden;
 }
 

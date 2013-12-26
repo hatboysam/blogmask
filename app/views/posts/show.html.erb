@@ -14,7 +14,7 @@
   </figure>
 
   <!-- Post Category Label -->
-  <a href="<%= post_category_path(@post.category) %>" class="cat-label button small radius success">Category: <%= @post.category %></a>
+  <a href="<%= post_category_path(@post.category) %>" class="cat-label button small success">Category: <%= @post.category %></a>
 
   <!-- Parent Label -->
   <% unless @post.parent.nil? %>
@@ -22,7 +22,7 @@
                 post_slug_path(
                   @post.parent.hashed_key, 
                   @post.parent.title_slug),
-                class: 'cat-label button small radius' %>
+                class: 'cat-label button small' %>
   <% end %>
   <br />
 

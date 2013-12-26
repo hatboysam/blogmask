@@ -11,6 +11,14 @@ class Post < ActiveRecord::Base
     Base64.strict_decode64(hashed).to_i
   end
 
+  def self.top_all_time(num)
+    all.limit(num).order('numvotes DESC')
+  end
+
+  def self.top_last_week(num)
+    where("lastvoted > ?", Time.now - 7.days).limit(10).order('numvotes DESC')
+  end
+
   def hashed_key
     Base64.strict_encode64(id.to_s)
   end
@@ -21,7 +29,11 @@ class Post < ActiveRecord::Base
 
   def body_preview
     stripped = body.gsub(/<[^>]+>/,' ').gsub('&nbsp', '').strip.squeeze(' ')
-    return stripped
+    if stripped.length <= 50
+      stripped
+    else
+      stripped[0..50] + '...'
+    end
   end
 
   def parent

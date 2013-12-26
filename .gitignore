@@ -17,3 +17,6 @@
 
 # Dumb Mac
 .DS_Store
+
+# Docs, for now
+doc/

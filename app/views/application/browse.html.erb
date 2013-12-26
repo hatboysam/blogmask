@@ -1,8 +1,9 @@
-<h1>Browse by Category</h1>
+<h1>Browse</h1>
 <hr>
 
+<h2>By Category</h2>
 <% Category.all.each_slice(4) do |slice| %>
-  <div class="row">
+  <div class="row p5">
     <% slice.each do |c| %>
       <div class="large-3 small-3 columns cat-col">
         <%= link_to c, post_category_path(c) %>
@@ -10,3 +11,28 @@
     <% end %>
   </div>
 <% end %>
+
+<hr>
+
+<h2>Top Posts</h2>
+<div class="row">
+
+  <div class="large-6 small-6 columns">
+    <h3>Top This Week</h3>
+    <% @thisweek.each do |p| %>
+      <div class="panel hide-over">
+        <%= render partial: 'posts/title_and_score', locals: { post: p } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="large-6 small-6 columns">
+    <h3>Top All Time</h3>
+    <% @alltime.each do |p| %>
+      <div class="panel hide-over">
+        <%= render partial: 'posts/title_and_score', locals: { post: p } %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

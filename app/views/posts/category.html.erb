@@ -7,17 +7,7 @@
   <% @posts.each do |post| %>
     <div class="panel small-11 large-9 small-centered columns">
       <div class="post-preview">
-        <div class="t-inline list-circle dotted">+<%= post.numvotes %></div>
-        <div class="t-inline list-content v-middle">
-            <div class="no-over mb">
-              <b><%= link_to post.title, 
-                post_slug_path(post.hashed_key, 
-                post.title_slug) %></b>
-            </div>
-            <div class="no-over">
-              <%= raw(post.body_preview)[0..50] %>
-            </div>
-        </div>
+        <%= render partial: 'title_and_score', locals: { post: post } %>
       </div>
     </div>
   <% end %>

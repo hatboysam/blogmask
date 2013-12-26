@@ -1,0 +1,13 @@
+<div class="t-inline list-circle dotted">
+  +<%= post.numvotes %>
+</div>
+<div class="t-inline list-content v-middle">
+    <div class="no-over mb">
+      <b><%= link_to post.title, 
+        post_slug_path(post.hashed_key, 
+        post.title_slug) %></b>
+    </div>
+    <div class="no-over">
+      <%= raw(post.body_preview) %>
+    </div>
+</div>
