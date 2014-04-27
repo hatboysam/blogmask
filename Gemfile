@@ -15,6 +15,9 @@ group :production do
   gem 'newrelic_rpm'
 end
 
+# Store configuration in the environment
+gem 'dotenv-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

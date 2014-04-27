@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Blogmask::Application.config.secret_key_base = 'afb094c75393805cea35aa44be8a9010e1e0465108829a78ea5a1e0729dd77e2f2dccc38c5e6a367bbf0cca8692da9bde53131246be2f7585a73cf50a24fec45'
+Blogmask::Application.config.secret_key_base = ENV['SECRET_TOKEN']

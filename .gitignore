@@ -20,3 +20,6 @@
 
 # Docs, for now
 doc/
+
+# Dotenv
+.env
